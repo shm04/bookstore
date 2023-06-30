@@ -1,40 +1,39 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { nanoid } from '@reduxjs/toolkit';
+import { addBook } from '../redux/books/booksSlice';
 
-const AddBook = ({ onSubmit }) => {
-  const [book, setBook] = useState({
-    title: '',
-    author: '',
-  });
+const AddBook = () => {
+  const dispatch = useDispatch();
 
-  const updateBook = (e) => {
-    setBook({
-      ...book,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+  const [category, setCategory] = useState('');
 
-  const addBook = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(book);
-    setBook({
-      title: '',
-      author: '',
-    });
+    const itemId = nanoid();
+    dispatch(addBook({
+      itemId, title, author, category,
+    }));
+
+    setTitle('');
+    setAuthor('');
+    setCategory('');
   };
 
   return (
     <div>
       <h2>Add Book</h2>
-      <form onSubmit={addBook}>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="title">
           Title:
           <input
             type="text"
             id="title"
             name="title"
-            value={book.title}
-            onChange={updateBook}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
           />
         </label>
         <label htmlFor="author">
@@ -43,18 +42,29 @@ const AddBook = ({ onSubmit }) => {
             type="text"
             id="author"
             name="author"
-            value={book.author}
-            onChange={updateBook}
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
           />
+        </label>
+        <label htmlFor="category">
+          Category:
+          <select
+            id="category"
+            name="category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            <option value="">Select a category</option>
+            <option value="Fiction">Fiction</option>
+            <option value="Nonfiction">Nonfiction</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Mystery">Mystery</option>
+          </select>
         </label>
         <button type="submit">Add</button>
       </form>
     </div>
   );
-};
-
-AddBook.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
 };
 
 export default AddBook;

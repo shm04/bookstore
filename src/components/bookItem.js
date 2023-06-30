@@ -6,6 +6,7 @@ const BookItem = ({
   itemId, title, author, category,
 }) => {
   const dispatch = useDispatch();
+
   return (
     <div>
       <h3>{title}</h3>
@@ -15,14 +16,21 @@ const BookItem = ({
         {author}
         <br />
       </p>
-      <p>{category}</p>
-      <button type="button" onClick={() => { dispatch(removeBook(itemId)); }}>Remove</button>
+      <p>
+        <strong>Category:</strong>
+        {' '}
+        {category}
+        <br />
+      </p>
+      <button type="button" onClick={() => dispatch(removeBook(itemId))}>
+        Remove
+      </button>
     </div>
   );
 };
 
 BookItem.propTypes = {
-  itemId: PropTypes.number.isRequired,
+  itemId: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,

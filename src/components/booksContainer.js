@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import BookItem from './bookItem';
 import AddBook from './Create';
 
 const BooksContainer = () => {
-  // const dispatch = useDispatch();
-  const { BookItem } = useSelector((store) => store.books);
+  const books = useSelector((store) => store.books);
 
   return (
     <section>
-      {BookItem.map((item) => <BookItem key={item.id} {...item} />)}
+      {books.map((item) => (
+        <BookItem
+          key={item.itemId}
+          itemId={item.itemId}
+          title={item.title}
+          author={item.author}
+          category={item.category}
+        />
+      ))}
       <AddBook />
     </section>
   );
