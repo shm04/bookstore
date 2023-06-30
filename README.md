@@ -4,6 +4,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -34,6 +35,12 @@ This is a bookstore app built with react and redux.
 ### Key Features <a name="key-features"></a>
 
 - **You can watch a list of books**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+- [Live Demo Link](https://bookstore-vvkx.onrender.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
