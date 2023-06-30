@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Menu from './components/Menu';
-import Books from './components/Books';
+import Books from './components/booksContainer';
 import Categories from './components/Categories';
 
 const App = () => (
