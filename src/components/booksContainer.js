@@ -6,7 +6,7 @@ const BooksContainer = () => {
   const books = useSelector((store) => store.books);
 
   return (
-    <section>
+    <section className="mainSection">
       {books.map((item) => (
         <BookItem
           key={item.itemId}

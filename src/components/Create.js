@@ -23,45 +23,47 @@ const AddBook = () => {
   };
 
   return (
-    <div>
-      <h2>Add Book</h2>
+    <div className="inputDiv">
+      <h2>ADD NEW BOOK</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">
-          Title:
           <input
+            className="inputTitle"
             type="text"
             id="title"
             name="title"
+            placeholder="Book Title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
         </label>
         <label htmlFor="author">
-          Author:
           <input
+            className="inputAuthor"
             type="text"
             id="author"
             name="author"
+            placeholder="Book Author"
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
           />
         </label>
         <label htmlFor="category">
-          Category:
           <select
+            className="inputCategory"
             id="category"
             name="category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           >
-            <option value="">Select a category</option>
+            <option value="">Category</option>
             <option value="Fiction">Fiction</option>
             <option value="Nonfiction">Nonfiction</option>
             <option value="Fantasy">Fantasy</option>
             <option value="Mystery">Mystery</option>
           </select>
         </label>
-        <button type="submit">Add</button>
+        <button type="submit">Add Book</button>
       </form>
     </div>
   );
