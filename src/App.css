@@ -1,3 +1,175 @@
-* {
-  background-color: aliceblue;
+body {
+  background-color: #f5f6fa;
+}
+
+#root {
+  margin: 9.31rem 6.25rem;
+  background-color: #fafafa;
+}
+
+#navbar {
+  padding: 1.81rem 6.25rem;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  margin-bottom: 2rem;
+}
+
+.percenDiv img {
+  margin-right: 15px;
+}
+
+#navbar img {
+  border: solid 1px #0290ff;
+  padding: 7px;
+  border-radius: 50px;
+  margin-left: auto;
+  width: 1rem;
+  height: 1rem;
+}
+
+#navbar h1 {
+  color: #0290ff;
+}
+
+#menu {
+  display: flex;
+  list-style: none;
+}
+
+#menu li {
+  margin: 2.5rem;
+}
+
+#menu a {
+  text-decoration: none;
+  color: #121212;
+}
+
+.mainSection {
+  background-color: #fafafa;
+  margin: 0 6.25rem;
+  padding-bottom: 2rem;
+}
+
+.bookDiv {
+  background-color: #fff;
+  border: solid 1px #e8e8e8;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.btnsDiv {
+  display: flex;
+}
+
+.category {
+  font-size: 0.8rem;
+  color: #121212;
+  margin: 0.25rem;
+}
+
+.title {
+  font-size: 1.3rem;
+  color: #121212;
+  margin: 0.25rem;
+}
+
+.author {
+  font-size: 0.8rem;
+  color: #4386bf;
+  margin: 0.25rem;
+}
+
+.btnsDiv button {
+  border: none;
+  background-color: #fff;
+  font-size: 0.8rem;
+  color: #4386bf;
+  margin: 1.3rem 0.25rem;
+  padding: 0;
+  margin-right: 1rem;
+}
+
+.percenDiv {
+  display: flex;
+}
+
+.percentage {
+  font-size: 2rem;
+  color: #121212;
+  margin: 0;
+}
+
+.status {
+  font-size: 0.8rem;
+  color: #121212;
+  margin: 0;
+}
+
+.current {
+  font-size: 0.8rem;
+  color: #121212;
+  margin: 0;
+}
+
+.chapter {
+  font-size: 1rem;
+  color: #121212;
+  margin: 0.4rem 0 1rem 0;
+}
+
+.progressBtn {
+  border-radius: 3px;
+  background-color: #0290ff;
+  border: 1px #0290ff solid;
+  color: #fff;
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.inputDiv h2 {
+  font-size: 1.25rem;
+  color: #888;
+}
+
+.inputDiv label {
+  margin-right: 2rem;
+}
+
+.inputDiv ::placeholder {
+  font-size: 1rem;
+  color: #c4c4c4;
+  padding: 1rem;
+}
+
+.inputTitle,
+.inputAuthor {
+  width: 25%;
+  padding: 0.5rem;
+  border: solid 1px #e8e8e8;
+}
+
+.inputCategory {
+  width: 20%;
+  font-size: 1rem;
+  color: #c4c4c4;
+  padding: 0.5rem;
+  border: solid 1px #e8e8e8;
+  border-radius: 3px;
+}
+
+.inputDiv button {
+  font-size: 1rem;
+  color: #fff;
+  background-color: #0290ff;
+  padding: 0.5rem;
+  border: solid 1px #e8e8e8;
+  width: 15%;
+  border-radius: 3px;
 }

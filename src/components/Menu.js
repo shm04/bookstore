@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import user from '../assets/user.png';
 
 const Menu = () => (
   <nav id="navbar">
@@ -8,6 +9,7 @@ const Menu = () => (
       <li><Link to="/">Books</Link></li>
       <li><Link to="/categories">Categories</Link></li>
     </ul>
+    <img alt="user" src={user} />
   </nav>
 );
 
