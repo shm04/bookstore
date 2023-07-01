@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 
 const API_BASE_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi';
 const KEY = '7u3HEQWYdcjxX54hw874';
@@ -14,11 +15,14 @@ export const fetchBooks = createAsyncThunk(FETCH_BOOKS, async () => {
     ...info[0],
   }));
 
+  // Save the books in localStorage
+  localStorage.setItem('books', JSON.stringify(booksArray));
+
   return booksArray;
 });
 
 export const addBook = createAsyncThunk(ADD_BOOKS, async (bookData) => {
-  const bookId = Date.now();
+  const bookId = uuidv4();
 
   const {
     title,
@@ -33,12 +37,14 @@ export const addBook = createAsyncThunk(ADD_BOOKS, async (bookData) => {
     category: category || '',
   });
 
-  return {
-    item_id: bookId,
+  const newBook = {
+    itemId: bookId,
     title,
     author,
     category: category || '',
   };
+
+  return newBook;
 });
 
 export const removeBook = createAsyncThunk(REMOVE_BOOK, async (bookId) => {
@@ -46,7 +52,8 @@ export const removeBook = createAsyncThunk(REMOVE_BOOK, async (bookId) => {
   return bookId;
 });
 
-const initialState = [];
+// Get the books from localStorage if available, otherwise use an empty array as the initial state
+const initialState = JSON.parse(localStorage.getItem('books')) || [];
 
 const booksSlice = createSlice({
   name: 'books',
@@ -60,12 +67,13 @@ const booksSlice = createSlice({
       })
       .addCase(addBook.fulfilled, (state, action) => {
         state.push(action.payload);
+        localStorage.setItem('books', JSON.stringify(state));
       })
       .addCase(removeBook.fulfilled, (state, action) => {
-        const index = state.findIndex((book) => book.id === action.payload);
-        if (index !== -1) {
-          state.splice(index, 1);
-        }
+        const id = action.payload;
+        const updatedState = state.filter((book) => book.itemId !== id);
+        localStorage.setItem('books', JSON.stringify(updatedState));
+        return updatedState;
       });
   },
 });
